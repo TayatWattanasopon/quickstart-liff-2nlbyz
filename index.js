@@ -32,5 +32,15 @@ async function main() {
     case "android": body.style.backgroundColor = "#d1f5d3"; break
     case "ios": body.style.backgroundColor = "#eeeeee"; break
   }
+  getUserProfile()
 }
+
+async function getUserProfile() {
+  const profile = await liff.getProfile()
+  pictureUrl.src = profile.pictureUrl
+  userId.innerHTML = "<b>userId:</b> " + profile.userId
+  statusMessage.innerHTML = "<b>statusMessage:</b> " + profile.statusMessage
+  displayName.innerHTML = "<b>displayName:</b> " + profile.displayName
+}
+
 main()

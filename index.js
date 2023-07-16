@@ -47,6 +47,7 @@ async function main() {
       btnLogOut.style.display = 'none';
     }
   } else {
+    btnSend.style.display = 'block';
     getUserProfile();
   }
 }
@@ -62,6 +63,21 @@ async function getUserProfile() {
 
 main();
 
+async function sendMsg() {
+  if (
+    liff.getContext().type !== 'none' &&
+    liff.getContext().type !== 'external'
+  ) {
+    await liff.sendMessages([
+      {
+        type: 'text',
+        text: 'This message was sent by sendMessages()',
+      },
+    ]);
+    alert('Message sent');
+  }
+}
+
 btnLogIn.onclick = () => {
   liff.login();
 };
@@ -69,4 +85,8 @@ btnLogIn.onclick = () => {
 btnLogOut.onclick = () => {
   liff.logout();
   window.location.reload();
+};
+
+btnSend.onclick = () => {
+  sendMsg();
 };

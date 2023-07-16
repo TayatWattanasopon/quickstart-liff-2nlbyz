@@ -106,6 +106,16 @@ async function sendMsg() {
   }
 }
 
+async function shareMsg() {
+  await liff.shareTargetPicker([
+    {
+      type: 'image',
+      originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/2016_en_02.jpg',
+      previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/2016_en_02.jpg',
+    },
+  ]);
+}
+
 btnLogIn.onclick = () => {
   liff.login();
 };

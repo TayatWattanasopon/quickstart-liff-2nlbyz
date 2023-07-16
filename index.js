@@ -65,12 +65,11 @@ async function main() {
     if (liff.isLoggedIn()) {
       btnLogIn.style.display = 'none';
       btnLogOut.style.display = 'block';
-      btnShare.style.display = 'none';
+      btnShare.style.display = 'block';
       getUserProfile();
     } else {
       btnLogIn.style.display = 'block';
       btnLogOut.style.display = 'none';
-      btnShare.style.display = 'block';
     }
   } else {
     btnSend.style.display = 'block';
@@ -116,6 +115,11 @@ async function shareMsg() {
   ]);
 }
 
+async function scanCode() {
+  const result = await liff.scanCode();
+  code.innerHTML = '<b>Code: </b>' + result.value;
+}
+
 btnLogIn.onclick = () => {
   liff.login();
 };
@@ -132,3 +136,7 @@ btnSend.onclick = () => {
 btnShare.onclick = () => {
   shareMsg();
 };
+
+btnScanCode.onclick = () => {
+  scanCode()
+}

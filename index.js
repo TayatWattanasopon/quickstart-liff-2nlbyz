@@ -92,6 +92,12 @@ async function sendMsg() {
     liff.getContext().type !== 'none' &&
     liff.getContext().type !== 'external'
   ) {
+    await liff.sendMessages([
+      {
+        type: 'text',
+        text: 'This message was sent by sendMessages()',
+      },
+    ]);
     await liff.sendMessages(lineResponseMessageS);
     alert('Message sent');
   }

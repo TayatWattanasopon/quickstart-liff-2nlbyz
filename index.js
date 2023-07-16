@@ -65,13 +65,16 @@ async function main() {
     if (liff.isLoggedIn()) {
       btnLogIn.style.display = 'none';
       btnLogOut.style.display = 'block';
+      btnShare.style.display = 'none';
       getUserProfile();
     } else {
       btnLogIn.style.display = 'block';
       btnLogOut.style.display = 'none';
+      btnShare.style.display = 'block';
     }
   } else {
     btnSend.style.display = 'block';
+    btnShare.style.display = 'block';
     getUserProfile();
   }
 }
@@ -98,7 +101,7 @@ async function sendMsg() {
         text: 'This message was sent by sendMessages()',
       },
     ]);
-    await liff.sendMessages(lineResponseMessageS);
+    // await liff.sendMessages(lineResponseMessageS);
     alert('Message sent');
   }
 }
@@ -114,4 +117,8 @@ btnLogOut.onclick = () => {
 
 btnSend.onclick = () => {
   sendMsg();
+};
+
+btnShare.onclick = () => {
+  shareMsg();
 };

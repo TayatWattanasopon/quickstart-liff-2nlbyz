@@ -23,7 +23,31 @@ const statusMessage = document.getElementById('statusMessage');
 // QR element
 const code = document.getElementById('code');
 const friendShip = document.getElementById('friendShip');
-
+var lineResponseMessageS = [
+  {
+    type: 'bubble',
+    body: {
+      type: 'box',
+      layout: 'horizontal',
+      contents: [
+        {
+          type: 'text',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          wrap: true,
+          color: '#ff0000',
+          flex: 2,
+        },
+        {
+          type: 'text',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          wrap: true,
+          color: '#0000ff',
+          flex: 3,
+        },
+      ],
+    },
+  },
+];
 async function main() {
   // Initialize LIFF app)
   await liff.init({ liffId: '2000141235-kLKnmg5M' });
@@ -68,12 +92,7 @@ async function sendMsg() {
     liff.getContext().type !== 'none' &&
     liff.getContext().type !== 'external'
   ) {
-    await liff.sendMessages([
-      {
-        type: 'text',
-        text: 'This message was sent by sendMessages()',
-      },
-    ]);
+    await liff.sendMessages(lineResponseMessageS);
     alert('Message sent');
   }
 }

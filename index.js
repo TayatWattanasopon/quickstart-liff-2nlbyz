@@ -33,6 +33,10 @@ async function main() {
     case "ios": body.style.backgroundColor = "#eeeeee"; break
   }
   getUserProfile()
+  if (!liff.isInClient()) {
+    btnLogIn.style.display = "block"
+    btnLogOut.style.display = "block"
+  }
 }
 
 async function getUserProfile() {
@@ -45,3 +49,12 @@ async function getUserProfile() {
 }
 
 main()
+
+btnLogIn.onclick = () => {
+  liff.login()
+}
+
+btnLogOut.onclick = () => {
+  liff.logout()
+  window.location.reload()
+}

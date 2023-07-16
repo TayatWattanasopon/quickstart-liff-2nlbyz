@@ -74,6 +74,7 @@ async function main() {
   } else {
     btnSend.style.display = 'block';
     btnShare.style.display = 'block';
+    btnScanCode.style.display = 'block';
     getUserProfile();
   }
 }
@@ -138,5 +139,5 @@ btnShare.onclick = () => {
 };
 
 btnScanCode.onclick = () => {
-  scanCode()
-}
+  scanCode();
+};
